@@ -30,8 +30,8 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <path>/notifications-test-webapp</path>
-                    <port>8080</port>
+                    <path>/</path>
+                    <port>8081</port>
                     <warSourceDirectory>src/main/webapp</warSourceDirectory>
                 </configuration>
             </plugin>

@@ -20,6 +20,11 @@
             <artifactId>bennu-core</artifactId>
             <version>${version.org.fenixedu.bennu}</version>
         </dependency>
+        <dependency>
+            <groupId>org.fenixedu</groupId>
+            <artifactId>bennu-notifications-client</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

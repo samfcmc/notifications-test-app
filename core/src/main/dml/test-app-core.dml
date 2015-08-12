@@ -1,1 +1,14 @@
 package org.fenixedu.notifications.core.domain;
+
+class Message {
+	String text;
+}
+
+relation UserHasMessages {
+	Message playsRole message {
+		multiplicity *;
+	}
+	.org.fenixedu.bennu.core.domain.User playsRole user {
+		multiplicity 1;
+	}
+}
