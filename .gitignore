@@ -11,3 +11,7 @@ notifications.properties
 .project
 .settings
 .classpath
+dist
+build
+node_modules
+bower_components

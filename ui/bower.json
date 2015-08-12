@@ -1,0 +1,12 @@
+{
+  "name": "notifications-test-app",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "2.1.4",
+    "bootstrap": "3.3.5",
+    "react": "0.13.3",
+    "react-router": "0.13.3",
+    "react-bootstrap": "0.24.3",
+    "moment": "2.10.6"
+  }
+}
