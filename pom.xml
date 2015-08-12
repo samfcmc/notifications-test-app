@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+  		<groupId>org.fenixedu</groupId>
+  		<artifactId>fenix-framework-project</artifactId>
+  		<version>2.2.0</version>
+  	</parent>
+
+   <groupId>org.fenixedu.notifications</groupId>
+    <artifactId>notifications-test-app</artifactId>
+    <name>Notifications Test App</name>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>core</module>
+        <module>ui</module>
+        <module>webapp</module>
+    </modules>
+
+    <properties>
+  		<version.org.fenixedu.bennu>3.4.1</version.org.fenixedu.bennu>
+  	</properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <configuration>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+            </plugin>
+            <plugin>
+                <groupId>org.fenixedu</groupId>
+                <artifactId>bennu-maven-plugin</artifactId>
+                <version>${version.org.fenixedu.bennu}</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>fenixedu-maven-repository</id>
+            <url>https://repo.fenixedu.org/fenixedu-maven-repository</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+  		<pluginRepository>
+  			<id>fenix-ashes-maven-repository</id>
+  			<url>https://fenix-ashes.ist.utl.pt/nexus/content/groups/fenix-ashes-maven-repository</url>
+  		</pluginRepository>
+  	</pluginRepositories>
+
+</project>
