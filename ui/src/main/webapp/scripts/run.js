@@ -16,9 +16,9 @@
 
     require('./components')(context);
 
-    require('./routes')(context);
+    require('./routes.jsx')(context);
 
-    Router.run(context.Routes, Router.HashLocation, function(Handler) {
+    Router.run(context.routes, Router.HashLocation, function(Handler) {
       React.render(
         <Handler/>,
         document.getElementById('content')

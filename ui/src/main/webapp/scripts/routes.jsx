@@ -9,10 +9,13 @@
     var Router = libs.ReactRouter;
     var components = context.components;
     var Route = Router.Route;
+    var Main = components.Main.Main;
+    var RouteHandler = Router.RouteHandler;
 
-    /*context.Routes = (
-      //TODO: Define routes here
-    );*/
+    context.routes = (
+      <Route handler={Main} path="/">
+      </Route>
+    );
 
   };
 

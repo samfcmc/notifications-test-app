@@ -7,6 +7,7 @@
     "react": "0.13.3",
     "react-router": "0.13.3",
     "react-bootstrap": "0.24.3",
-    "moment": "2.10.6"
+    "moment": "2.10.6",
+    "fluxxor": "~1.7.3"
   }
 }

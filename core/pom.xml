@@ -22,7 +22,7 @@
         </dependency>
         <dependency>
             <groupId>org.fenixedu</groupId>
-            <artifactId>bennu-notifications-client</artifactId>
+            <artifactId>bennu-notifications-client-ff</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

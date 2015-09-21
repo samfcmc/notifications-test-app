@@ -3,7 +3,9 @@
 (function(module, require) {
 
   module.exports = function(context) {
-    //TODO: Require components here
-  }
+    require('./messages')(context, 'Messages');
+    require('./main.jsx')(context, 'Main');
+
+  };
 
 }(module, require));
