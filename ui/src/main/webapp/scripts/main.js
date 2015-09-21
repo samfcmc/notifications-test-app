@@ -1,6 +1,6 @@
 'use strict';
 
-(function (require, React, Router, ReactBootstrap, moment, jQuery) {
+(function (require, React, Router, ReactBootstrap, moment, jQuery, Fluxxor) {
 
   var run = require('./run');
 
@@ -8,7 +8,7 @@
     method: 'GET',
     success: function(user) {
       if(user.username) {
-        run(user, React, Router, ReactBootstrap, moment, jQuery);
+        run(user, React, Router, ReactBootstrap, moment, jQuery, Fluxxor);
       }
       else {
         window.location = '/login';
@@ -22,4 +22,4 @@
 
 
 }(require, window.React, window.ReactRouter, window.ReactBootstrap,
-  window.moment, window.jQuery));
+  window.moment, window.jQuery, window.Fluxxor));

@@ -7,4 +7,5 @@
   window.ReactRouter = require('react-router');
   window.ReactBootstrap = require('react-bootstrap');
   window.moment = require('moment');
+  window.Fluxxor = require('fluxxor');
 }(window, require));

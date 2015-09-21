@@ -11,6 +11,12 @@
     return {
       libs: libs,
       components: {
+        // React components will be stored here
+      },
+      stores: {
+        // Flux stores will be stored here
+      },
+      actions: {
 
       },
       createComponent: function(groupName, name, obj) {
@@ -21,6 +27,13 @@
           this.components[groupName] = group;
         }
         group[name] = component;
+      },
+      createStore: function(name, obj) {
+        var store = this.libs.Fluxxor.createStore(obj);
+        this.stores[name] = store;
+      },
+      createAction: function(name, callback) {
+        this.actions[name] = callback;
       }
     };
   };
