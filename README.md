@@ -29,7 +29,12 @@ To launch the REST API:
 cd webapp && mvn tomcat7:run
 ```
 
-To run the UI using grunt:
+To run the UI you first need to install all the NPM modules:
+```shell
+cd ui && npm install
+```
+
+You can now launch the UI using Grunt CLI:
 ```shell
 cd ui && grunt
 ```
