@@ -32,3 +32,4 @@ cd webapp && mvn tomcat7:run
 To run the UI using grunt:
 ```shell
 cd ui && grunt
+```
