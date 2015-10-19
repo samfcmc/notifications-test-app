@@ -2,7 +2,7 @@
 
 (function(require, module) {
   module.exports = function(User, React, Router, ReactBootstrap, moment, jQuery,
-  Fluxxor) {
+  Fluxxor, Notifications) {
 
     var context = require('./context')(
       {
@@ -11,7 +11,8 @@
         ReactBootstrap: ReactBootstrap,
         moment: moment,
         jQuery: jQuery,
-        Fluxxor: Fluxxor
+        Fluxxor: Fluxxor,
+        Notifications: Notifications
       }
     );
     context.user = User;
@@ -22,9 +23,11 @@
 
     require('./flux')(context);
 
+    var flux = context.flux;
+
     Router.run(context.routes, Router.HashLocation, function(Handler) {
       React.render(
-        <Handler/>,
+        <Handler flux={flux}/>,
         document.getElementById('content')
       );
     });

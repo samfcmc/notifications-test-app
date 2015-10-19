@@ -73,7 +73,10 @@ module.exports = function(grunt) {
                 src: ['<%= vendorsScriptPath %>'],
                 dest: '<%= vendorsScriptTargetPath %>',
                 options: {
-                    transform: ['debowerify']
+                    transform: ['debowerify'],
+                    browserifyOptions: {
+                        debug: '<%= debug %>'
+                    }
                 }
             },
             main: {

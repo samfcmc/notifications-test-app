@@ -29,8 +29,8 @@
         group[name] = component;
       },
       createStore: function(name, obj) {
-        var store = this.libs.Fluxxor.createStore(obj);
-        this.stores[name] = store;
+        var Store = this.libs.Fluxxor.createStore(obj);
+        this.stores[name] = new Store();
       },
       createAction: function(name, callback) {
         this.actions[name] = callback;
