@@ -3,7 +3,6 @@
 (function(module) {
 
   module.exports = function(context) {
-    //FIXME Replace this by a dynamic value!!
     var notifications = new context.libs.Notifications(context.config.notifications.url,
       context.user.username);
 
@@ -22,7 +21,7 @@
         jQuery.ajax({
           url: '/api/messages',
           success: function(response) {
-            self.messages = response;
+            self.messages = JSON.parse(response);
             self.emit('change');
           }
         });
@@ -37,7 +36,20 @@
           if(!item.read) {
             this.unread++;
           }
+          this.notifications.push(item);
         }
+        this.emit('change');
+        notifications.poll(10, this.newNotifications);
+      },
+      newNotifications: function(response) {
+        for(var i = 0; i < response.length; i++) {
+          var item = response[i];
+          this.notifications.push(item);
+        }
+        this.notifications.sort(function(left, right) {
+          return right.timestamp - left.timestamp;
+        });
+        this.emit('change');
       },
       addMessage: function(payload) {
         var self = this;
@@ -49,7 +61,7 @@
             'Content-type': 'application/json'
           },
           success: function(response) {
-            self.messages.push(response);
+            self.messages.push(JSON.parse(response));
             self.emit('change');
           }
         });
@@ -57,7 +69,8 @@
       getState: function() {
         return {
           notifications: this.notifications,
-          unread: this.unread
+          unread: this.unread,
+          messages: this.messages
         };
       }
     });

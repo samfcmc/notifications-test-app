@@ -15,6 +15,7 @@ public class MessageJsonViewer implements JsonViewer<Message> {
         JsonObject jsonObject = new JsonObject();
         User from = obj.getFrom();
         User to = obj.getTo();
+        jsonObject.addProperty("id", obj.getExternalId());
         jsonObject.add("from", ctx.view(from));
         jsonObject.add("to", ctx.view(to));
         jsonObject.addProperty("text", obj.getText());

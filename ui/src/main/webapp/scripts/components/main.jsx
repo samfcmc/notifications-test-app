@@ -8,7 +8,10 @@
     var components = context.components;
     var Messages = components.Messages;
     var NewMessage = Messages.NewMessage;
-    var ListMessages = Messages.ListMessages;
+
+    var Notifications = components.Notifications;
+    var ListNotifications = Notifications.ListNotifications;
+
     var Navbar = components.Partials.Navbar;
     var Fluxxor = libs.Fluxxor;
     var FluxMixin = Fluxxor.FluxMixin(libs.React);
@@ -28,7 +31,7 @@
               <NewMessage></NewMessage>
             </div>
             <div className="row">
-              <ListMessages></ListMessages>
+              <ListNotifications></ListNotifications>
             </div>
           </div>
         );

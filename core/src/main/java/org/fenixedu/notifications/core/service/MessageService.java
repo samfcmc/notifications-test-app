@@ -1,7 +1,5 @@
 package org.fenixedu.notifications.core.service;
 
-import java.util.Locale;
-
 import org.fenixedu.bennu.core.domain.User;
 import org.fenixedu.bennu.notifications.client.Notification;
 import org.fenixedu.bennu.notifications.client.NotificationsClient;
@@ -15,15 +13,16 @@ public class MessageService {
     public static Message create(String from, String to, String text) {
         User fromUser = User.findByUsername(from);
         User toUser = User.findByUsername(to);
-        Notification notification = createNewMessageNotification(to);
+        Message message = new Message(fromUser, toUser, text);
+        Notification notification = createNewMessageNotification(to, message);
         notificationsClient.postNotification(notification);
-        return new Message(fromUser, toUser, text);
+        return message;
     }
 
-    private static Notification createNewMessageNotification(String to) {
+    private static Notification createNewMessageNotification(String to, Message message) {
         Notification.Builder builder = new Notification.Builder();
-        Notification payload =
-                builder.description(Locale.ENGLISH.getDisplayLanguage(), "new message").type("MESSAGE").usernames(to).build();
+        String link = "/api/messages/" + message.getExternalId();
+        Notification payload = builder.description("EN", "new message").type("MESSAGE").usernames(to).link(link).build();
         return payload;
     }
 }

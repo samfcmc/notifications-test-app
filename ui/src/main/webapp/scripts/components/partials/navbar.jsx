@@ -3,7 +3,19 @@
 (function(module) {
 
   module.exports = function(context, name) {
+    var libs = context.libs;
+    var Fluxxor = libs.Fluxxor;
+    var FluxMixin = Fluxxor.FluxMixin(libs.React);
+    var StoreWatchMixin = Fluxxor.StoreWatchMixin;
+    var ReactBootstrap = libs.ReactBootstrap;
+    var Badge = ReactBootstrap.Badge;
+
     context.createComponent(name, 'Navbar', {
+      mixins: [FluxMixin, StoreWatchMixin('MessagesStore')],
+      getStateFromFlux: function() {
+        var flux = this.getFlux();
+        return flux.store('MessagesStore').getState();
+      },
       render: function() {
         return (
           <nav className="navbar navbar-default">
@@ -23,10 +35,10 @@
                   Notifications Test App
                 </a>
               </div>
-              <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <div className="collapse navbar-collapse">
                 <ul className="nav navbar-nav">
                   <li>
-                    <a href="#">New Messages <span className="badge">42</span>
+                    <a href="#">New Messages <Badge>{this.state.unread}</Badge>
                     </a>
                   </li>
                 </ul>
