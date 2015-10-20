@@ -13,10 +13,11 @@ public class MessageJsonCreator implements JsonCreator<Message> {
     @Override
     public Message create(JsonElement json, JsonBuilder ctx) {
         JsonObject jsonObject = json.getAsJsonObject();
+        String from = jsonObject.get("from").getAsString();
         String to = jsonObject.get("to").getAsString();
         String text = jsonObject.get("text").getAsString();
 
-        return MessageService.create(to, text);
+        return MessageService.create(from, to, text);
     }
 
 }

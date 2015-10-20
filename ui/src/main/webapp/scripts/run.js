@@ -17,6 +17,8 @@
     );
     context.user = User;
 
+    context.config = {notifications: {url: 'http://localhost:8080'}};
+
     require('./components')(context);
 
     require('./routes.jsx')(context);

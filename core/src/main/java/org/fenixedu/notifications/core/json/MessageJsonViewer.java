@@ -13,9 +13,12 @@ public class MessageJsonViewer implements JsonViewer<Message> {
     @Override
     public JsonElement view(Message obj, JsonBuilder ctx) {
         JsonObject jsonObject = new JsonObject();
-        User user = obj.getUser();
-        jsonObject.add("user", ctx.view(user));
+        User from = obj.getFrom();
+        User to = obj.getTo();
+        jsonObject.add("from", ctx.view(from));
+        jsonObject.add("to", ctx.view(to));
         jsonObject.addProperty("text", obj.getText());
+        jsonObject.addProperty("timestamp", obj.getTimestamp().getMillis());
 
         return jsonObject;
     }

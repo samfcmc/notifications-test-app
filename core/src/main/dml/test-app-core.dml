@@ -2,13 +2,23 @@ package org.fenixedu.notifications.core.domain;
 
 class Message {
 	String text;
+	DateTime timestamp;
 }
 
-relation UserHasMessages {
-	Message playsRole message {
+relation MessageIsSentTo {
+	Message playsRole messageSent {
 		multiplicity *;
 	}
-	.org.fenixedu.bennu.core.domain.User playsRole user {
+	.org.fenixedu.bennu.core.domain.User playsRole to {
+		multiplicity 1;
+	}
+}
+
+relation MessageIsSentFrom {
+	Message playsRole messageReceived {
+		multiplicity *;
+	}
+	.org.fenixedu.bennu.core.domain.User playsRole from {
 		multiplicity 1;
 	}
 }

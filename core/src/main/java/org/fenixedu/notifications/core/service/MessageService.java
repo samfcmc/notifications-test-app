@@ -12,11 +12,12 @@ public class MessageService {
 
     private static NotificationsClient notificationsClient = NotificationsClientUsage.getClient();
 
-    public static Message create(String to, String text) {
-        User user = User.findByUsername(to);
+    public static Message create(String from, String to, String text) {
+        User fromUser = User.findByUsername(from);
+        User toUser = User.findByUsername(to);
         Notification notification = createNewMessageNotification(to);
         notificationsClient.postNotification(notification);
-        return new Message(text, user);
+        return new Message(fromUser, toUser, text);
     }
 
     private static Notification createNewMessageNotification(String to) {
