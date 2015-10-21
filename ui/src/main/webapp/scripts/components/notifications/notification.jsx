@@ -14,6 +14,7 @@
     var ListGroupItem = ReactBootstrap.ListGroupItem;
     var Modal = ReactBootstrap.Modal;
     var Button = ReactBootstrap.Button;
+    var Glyphicon = ReactBootstrap.Glyphicon;
 
     context.createComponent(name, 'Notification', {
       mixins: [FluxMixin, StoreWatchMixin('MessageStore')],
@@ -33,8 +34,11 @@
 
       },
       close: function() {
+        if(!this.props.notification.read) {
+          var flux = this.getFlux();
+          flux.actions.READ_NOTIFICATION(this.props.notification);
+        }
         this.setState({showModal: false});
-        //TODO: Use store to read the notification
       },
       getMoment: function(timestamp) {
         return moment(timestamp).fromNow();
@@ -52,6 +56,7 @@
         var message = this.state.message;
         return (
           <ListGroupItem onClick={this.open} className={this.getClass()}>
+            <Glyphicon glyph="bell" />
             {this.getMoment(notification.timestamp)} {this.props.notification.payload.type}
             <Modal show={this.state.showModal} onHide={this.close}>
               <Modal.Header closeButton>

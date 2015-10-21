@@ -8,5 +8,5 @@
   window.ReactBootstrap = require('react-bootstrap');
   window.moment = require('moment');
   window.Fluxxor = require('fluxxor');
-  require('notifications-js-pooling-consumer');
+  require('notifications-js-polling-consumer');
 }(window, require));

@@ -11,10 +11,10 @@
     var Badge = ReactBootstrap.Badge;
 
     context.createComponent(name, 'Navbar', {
-      mixins: [FluxMixin, StoreWatchMixin('MessagesStore')],
+      mixins: [FluxMixin, StoreWatchMixin('NotificationsStore')],
       getStateFromFlux: function() {
         var flux = this.getFlux();
-        return flux.store('MessagesStore').getState();
+        return flux.store('NotificationsStore').getState();
       },
       render: function() {
         return (

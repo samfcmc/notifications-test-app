@@ -13,10 +13,10 @@
     var Notification = context.components.Notifications.Notification;
 
     context.createComponent(name, 'ListNotifications', {
-      mixins: [FluxMixin, StoreWatchMixin('MessagesStore')],
+      mixins: [FluxMixin, StoreWatchMixin('NotificationsStore')],
       getStateFromFlux: function() {
         var flux = this.getFlux();
-        return flux.store('MessagesStore').getState();
+        return flux.store('NotificationsStore').getState();
       },
       render: function() {
         return (

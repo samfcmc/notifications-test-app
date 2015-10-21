@@ -11,6 +11,7 @@
 
     var Notifications = components.Notifications;
     var ListNotifications = Notifications.ListNotifications;
+    var AlertNotification = Notifications.AlertNotification;
 
     var Navbar = components.Partials.Navbar;
     var Fluxxor = libs.Fluxxor;
@@ -28,10 +29,17 @@
           <div className="container">
             <Navbar></Navbar>
             <div className="row">
-              <NewMessage></NewMessage>
+              <div className="col-lg-12">
+                <NewMessage></NewMessage>
+              </div>
             </div>
             <div className="row">
-              <ListNotifications></ListNotifications>
+              <div className="col-lg-6">
+                <ListNotifications></ListNotifications>
+              </div>
+              <div className="col-lg-6">
+                <AlertNotification></AlertNotification>
+              </div>
             </div>
           </div>
         );
