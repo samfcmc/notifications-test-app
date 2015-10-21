@@ -5,11 +5,12 @@
 
   var run = require('./run');
 
-  jQuery.ajax('/api/bennu-core/profile', {
+  jQuery.ajax('/api/messages/user', {
     method: 'GET',
-    success: function(user) {
-      if(user.username) {
-        run(user, React, Router, ReactBootstrap, moment, jQuery,
+    success: function(response) {
+      var data = JSON.parse(response);
+      if(data.user) {
+        run(data, React, Router, ReactBootstrap, moment, jQuery,
           Fluxxor, Notifications);
       }
       else {

@@ -3,7 +3,7 @@
 (function(module) {
 
   module.exports = function(context) {
-    var notifications = new context.libs.Notifications(context.config.notifications.url,
+    var notifications = new context.libs.Notifications(context.config.notifications,
       context.user.username);
 
     var jQuery = context.libs.jQuery;

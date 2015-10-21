@@ -1,7 +1,7 @@
 'use strict';
 
 (function(require, module) {
-  module.exports = function(User, React, Router, ReactBootstrap, moment, jQuery,
+  module.exports = function(Data, React, Router, ReactBootstrap, moment, jQuery,
   Fluxxor, Notifications) {
 
     var context = require('./context')(
@@ -15,14 +15,12 @@
         Notifications: Notifications
       }
     );
-    context.user = User;
 
-    context.config = {notifications: {url: 'http://localhost:8080'}};
+    context.user = Data.user
+    context.config = {notifications: Data.notifications};
 
     require('./components')(context);
-
     require('./routes.jsx')(context);
-
     require('./flux')(context);
 
     var flux = context.flux;

@@ -13,6 +13,9 @@ import org.fenixedu.bennu.core.domain.User;
 import org.fenixedu.notifications.core.domain.Message;
 import org.fenixedu.notifications.core.json.MessageJsonCreator;
 import org.fenixedu.notifications.core.json.MessageJsonViewer;
+import org.fenixedu.notifications.core.json.UserViewJsonViewer;
+import org.fenixedu.notifications.core.notifications.NotificationsClientUsage;
+import org.fenixedu.notifications.core.view.UserView;
 
 import com.google.gson.JsonObject;
 
@@ -43,5 +46,13 @@ public class MessagesResource extends AuthenticatedResource {
         checkAccess();
         Message message = create(payload, Message.class, MessageJsonCreator.class);
         return ok(view(message, MessageJsonViewer.class));
+    }
+
+    @GET
+    @Path("/user")
+    public Response getUserData() {
+        checkAccess();
+        UserView userView = new UserView(getUser(), NotificationsClientUsage.getClient().getConfig().getUrl());
+        return ok(view(userView, UserViewJsonViewer.class));
     }
 }
