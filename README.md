@@ -49,5 +49,5 @@ Now to run the UI open a new shell in the projects root and do the following:
 ```shell
 cd ui
 npm install
-grun
+grunt
 ```
