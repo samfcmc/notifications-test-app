@@ -6,9 +6,11 @@ It simulates a messaging app.
 When a message is sent from user A to B, B receives a notification.
 
 ## Requirements
--	Java 8
--	Maven
-- Grunt CLI
+-	[Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+-	[Maven](https://maven.apache.org/)
+- [NodeJS](https://nodejs.org/en/)
+- [NPM](https://www.npmjs.com/)
+- [Grunt](http://gruntjs.com/getting-started)
 -	[notifications-client-java](https://github.com/samfcmc/notifications-client-java)
 
 ## Compile
