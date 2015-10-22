@@ -9,6 +9,6 @@
     "react-bootstrap": "0.24.3",
     "moment": "2.10.6",
     "fluxxor": "1.7.3",
-    "notifications-js-polling-consumer": "alpha.1"
+    "notifications-js-polling-consumer": "0.0.1"
   }
 }
